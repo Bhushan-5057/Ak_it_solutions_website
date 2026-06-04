@@ -8,10 +8,10 @@ import PageLoader from "@/components/common/PageLoader";
 export const metadata: Metadata = {
   title: {
     template: "%s | AK IT Solution",
-    default: "AK IT Solution - Cyber Security & Enterprise IT Solutions",
+    default: "AK IT Solution - Enterprise IT Solutions",
   },
   description:
-    "AK IT Solution delivers cyber security, SOC monitoring, cloud protection, secure software development, and enterprise IT solutions.",
+    "AK IT Solution delivers website development, mobile apps, SaaS platforms, cloud architecture, and enterprise IT solutions.",
   metadataBase: new URL("https://akitsolution.com"),
   icons: {
     icon: [

@@ -6,7 +6,6 @@ import Button from "../common/Button";
 import {
   ArrowRight,
   PhoneCall,
-  ShieldCheck,
 } from "lucide-react";
 import { HeroData } from "@/types";
 
@@ -88,7 +87,7 @@ export default function Hero({ data }: HeroProps) {
 
   const titles = useMemo(
     () => [
-      "Secure",
+      "Agile",
       "Scalable",
       "Resilient",
       "Reliable",
@@ -163,8 +162,7 @@ export default function Hero({ data }: HeroProps) {
             className="space-y-6"
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-widest text-primary shadow-sm backdrop-blur">
-              <ShieldCheck className="h-4 w-4" />
-              Cyber Security & IT Solutions
+              Digital Product & IT Solutions
             </span>
 
             <h1 className="font-black tracking-tight leading-[1.05] text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.1rem] text-slate-900 ">
@@ -255,7 +253,7 @@ export default function Hero({ data }: HeroProps) {
             animate="visible"
             className="grid w-full max-w-3xl grid-cols-1 gap-3 pt-2 text-left sm:grid-cols-3"
           >
-            {["SOC-ready monitoring", "Secure cloud architecture", "Incident response planning"].map((item) => (
+            {["Scalable web platforms", "Cloud-ready architecture", "Reliable product delivery"].map((item) => (
               <div
                 key={item}
                 className="rounded-lg border border-primary/15 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground shadow-sm backdrop-blur"

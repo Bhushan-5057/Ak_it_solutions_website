@@ -50,7 +50,7 @@ export default function IndustryGraphic({ slug }: GraphicProps) {
     );
   }
 
-  if (slug === "secure-scalable-solutions") {
+  if (slug === "healthcare-lifesciences-solutions") {
     return (
       <div className={containerClass}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(54,146,203,0.1),transparent_70%)]" />

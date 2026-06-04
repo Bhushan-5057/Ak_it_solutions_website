@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { CalendarDays, ArrowRight, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/types";
 import { DynamicIcon } from "@/components/common/Cards";
+import { formatBlogDate } from "@/lib/blog-utils";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -12,28 +14,9 @@ interface BlogCardProps {
   compact?: boolean;
 }
 
-function formatDate(value: string) {
-  const [year, month, day] = value.split("-");
-  const monthName = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ][Number(month) - 1];
-
-  return `${monthName} ${Number(day)}, ${year}`;
-}
-
 export default function BlogCard({ post, index = 0, compact = false }: BlogCardProps) {
-  const date = formatDate(post.publishedAt);
+  const date = formatBlogDate(post.publishedAt);
+  const iconImage = post.iconImageUrl || post.coverImageUrl;
 
   return (
     <motion.article
@@ -44,10 +27,20 @@ export default function BlogCard({ post, index = 0, compact = false }: BlogCardP
       className="group flex h-full flex-col rounded-lg border border-border/80 bg-card/95 p-5 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-xl hover:shadow-primary/10"
     >
       <div className="mb-5 flex items-center justify-between gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-          <DynamicIcon name={post.iconName} className="h-6 w-6" />
+        <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden text-primary transition-colors group-hover:text-white">
+          {iconImage ? (
+            <Image
+              src={iconImage}
+              alt=""
+              fill
+              sizes="48px"
+              className="object-cover"
+            />
+          ) : (
+            <DynamicIcon name={post.iconName} className="h-6 w-6" />
+          )}
         </div>
-        <span className="rounded-full bg-secondary/5 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-secondary">
+        <span className="rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-secondary">
           {post.category}
         </span>
       </div>
@@ -55,7 +48,7 @@ export default function BlogCard({ post, index = 0, compact = false }: BlogCardP
       <div className="flex items-center gap-4 text-xs font-semibold text-muted-foreground">
         <span className="inline-flex items-center gap-1.5">
           <CalendarDays className="h-3.5 w-3.5 text-primary" />
-          {date}
+          {date || "Recently"}
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Clock className="h-3.5 w-3.5 text-primary" />
@@ -71,7 +64,7 @@ export default function BlogCard({ post, index = 0, compact = false }: BlogCardP
       </p>
 
       <div className="mt-5 flex flex-wrap gap-2">
-        {post.tags.slice(0, compact ? 2 : 3).map((tag) => (
+        {(post.tags || []).slice(0, compact ? 2 : 3).map((tag) => (
           <span key={tag} className="rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-semibold text-foreground/75">
             {tag}
           </span>

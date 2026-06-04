@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Button from "../common/Button";
 import SectionHeading from "../common/SectionHeading";
-import { ArrowRight, Bot, Code2, Database, Server, ShieldAlert, Smartphone } from "lucide-react";
+import { ArrowRight, Bot, Code2, Database, Server, Settings2, Smartphone } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -39,7 +39,7 @@ export default function TechnologiesSection({ data }: TechnologiesSectionProps) 
     { id: "mobile", label: "Mobile", icon: Smartphone },
     { id: "database", label: "Database", icon: Database },
     { id: "ai-ml", label: "AI & ML", icon: Bot },
-    { id: "security", label: "Security", icon: ShieldAlert },
+    { id: "devops", label: "DevOps", icon: Settings2 },
   ].filter((tab) => data.categories[tab.id]);
 
   const currentCategory = data.categories[activeTab];

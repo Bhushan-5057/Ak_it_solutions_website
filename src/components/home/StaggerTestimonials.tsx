@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "Their security-first approach gave our finance team confidence from planning through launch. Communication stayed sharp the whole way.",
+      "Their quality-first approach gave our finance team confidence from planning through launch. Communication stayed sharp the whole way.",
     name: "Arjun Mehta",
     role: "Founder",
     company: "LedgerWave",

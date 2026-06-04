@@ -20,7 +20,6 @@ export default function Footer() {
     { label: "Website Development", href: "/services/website-development" },
     { label: "Mobile App Development", href: "/services/mobile-app-development" },
     { label: "SaaS Application Development", href: "/services/saas-application-development" },
-    { label: "Cyber Security", href: "/services/cyber-security" },
   ];
 
   const socialLinks = [
@@ -46,7 +45,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-200/85 text-sm leading-relaxed max-w-sm">
-              We design secure software, cloud infrastructure, and cyber security programs for growing enterprises.
+              We design reliable software, cloud infrastructure, and digital platforms for growing enterprises.
             </p>
             <div className="space-y-3">
               <a
@@ -107,7 +106,7 @@ export default function Footer() {
               Stay Connected
             </h3>
             <p className="text-slate-200/80 text-sm mb-6">
-              Follow our team and read practical security guidance for modern digital operations.
+              Follow our team and read practical guidance for modern digital operations.
             </p>
             <Link
               href="/blogs"

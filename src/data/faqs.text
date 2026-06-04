@@ -13,14 +13,14 @@
     {
       "id": "home-3",
       "question": "Do you provide support after launch?",
-      "answer": "Yes. We provide maintenance, performance monitoring, security improvements, feature updates, and technical guidance after your product goes live."
+      "answer": "Yes. We provide maintenance, performance monitoring, quality improvements, feature updates, and technical guidance after your product goes live."
     }
   ],
   "services": [
     {
       "id": "services-1",
       "question": "Which service should I choose for my business idea?",
-      "answer": "If you need a customer-facing website, choose website development. For mobile-first products, choose mobile app development. For subscription platforms, choose SaaS development. For audits and protection, choose cyber security."
+      "answer": "If you need a customer-facing website, choose website development. For mobile-first products, choose mobile app development. For subscription platforms, choose SaaS development."
     },
     {
       "id": "services-2",
@@ -29,8 +29,8 @@
     },
     {
       "id": "services-3",
-      "question": "How do you keep software scalable and secure?",
-      "answer": "We use clean architecture, modern frameworks, cloud-ready deployment patterns, access control, encryption, performance testing, and security reviews throughout development."
+      "question": "How do you keep software scalable and reliable?",
+      "answer": "We use clean architecture, modern frameworks, cloud-ready deployment patterns, role-based access, performance testing, and quality reviews throughout development."
     }
   ],
   "industries": [
@@ -42,7 +42,7 @@
     {
       "id": "industries-2",
       "question": "Can you build compliant solutions for healthcare or fintech?",
-      "answer": "Yes. We design secure software with strong authentication, encrypted data handling, audit-friendly flows, and compliance-aware architecture for sensitive domains."
+      "answer": "Yes. We design reliable software with strong sign-in flows, careful data handling, review-friendly workflows, and compliance-aware architecture for sensitive domains."
     },
     {
       "id": "industries-3",
@@ -69,12 +69,12 @@
     {
       "id": "website-development-4",
       "question": "Can you redesign or upgrade an existing website?",
-      "answer": "Yes. We modernize outdated websites with improved UI/UX, better performance, enhanced security, and scalable architecture without disrupting your business operations."
+      "answer": "Yes. We modernize outdated websites with improved UI/UX, better performance, stronger quality, and scalable architecture without disrupting your business operations."
     },
     {
       "id": "website-development-5",
       "question": "Do you provide website maintenance after launch?",
-      "answer": "Yes. We provide ongoing support including security updates, bug fixes, feature enhancements, backups, performance monitoring, and technical maintenance."
+      "answer": "Yes. We provide ongoing support including platform updates, bug fixes, feature enhancements, backups, performance monitoring, and technical maintenance."
     }
   ],
   "mobileAppDevelopment": [
@@ -95,8 +95,8 @@
     },
     {
       "id": "mobile-app-development-4",
-      "question": "Will my mobile app be secure?",
-      "answer": "Yes. We implement secure authentication, encrypted communication, secure APIs, role-based access control, and industry-standard security practices."
+      "question": "Will my mobile app be reliable?",
+      "answer": "Yes. We implement dependable authentication, careful communication flows, reliable APIs, role-based access control, and industry-standard engineering practices."
     },
     {
       "id": "mobile-app-development-5",
@@ -113,7 +113,7 @@
     {
       "id": "saas-development-2",
       "question": "Can you build scalable multi-tenant SaaS platforms?",
-      "answer": "Yes. We develop secure multi-tenant SaaS architectures with scalable infrastructure, user management, subscription handling, and role-based access systems."
+      "answer": "Yes. We develop reliable multi-tenant SaaS architectures with scalable infrastructure, user management, subscription handling, and role-based access systems."
     },
     {
       "id": "saas-development-3",
@@ -129,33 +129,6 @@
       "id": "saas-development-5",
       "question": "Can you modernize or upgrade an existing SaaS product?",
       "answer": "Yes. We improve existing SaaS applications with modern UI/UX, feature upgrades, better scalability, cloud migration, and enhanced performance."
-    }
-  ],
-  "cyberSecurity": [
-    {
-      "id": "cyber-security-1",
-      "question": "What cyber security services do you provide?",
-      "answer": "We provide security audits, vulnerability assessments, penetration testing, access control implementation, cloud security, and infrastructure protection services."
-    },
-    {
-      "id": "cyber-security-2",
-      "question": "How do you identify security vulnerabilities?",
-      "answer": "We use automated scanning tools, manual testing methods, penetration testing, code reviews, and infrastructure analysis to identify potential risks."
-    },
-    {
-      "id": "cyber-security-3",
-      "question": "Can you secure cloud infrastructure and web applications?",
-      "answer": "Yes. We secure cloud environments, APIs, databases, servers, and web applications using encryption, firewalls, monitoring systems, and access management."
-    },
-    {
-      "id": "cyber-security-4",
-      "question": "Do you help businesses prevent cyber attacks?",
-      "answer": "Yes. We implement proactive security strategies including threat monitoring, incident prevention, secure authentication, employee guidance, and system hardening."
-    },
-    {
-      "id": "cyber-security-5",
-      "question": "Do you provide ongoing cyber security monitoring and support?",
-      "answer": "Yes. We provide continuous monitoring, security updates, incident response support, vulnerability patching, and long-term protection strategies."
     }
   ]
 }

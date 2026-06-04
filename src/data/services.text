@@ -3,56 +3,42 @@
     "id": "s1",
     "slug": "website-development",
     "title": "Website Development",
-    "description": "Secure, responsive web applications engineered for performance, SEO, accessibility, and conversion.",
+    "description": "Responsive web applications engineered for performance, SEO, accessibility, and conversion.",
     "iconName": "Globe",
     "benefits": [
-      "Secure, lightweight architecture using Next.js and modern frameworks",
+      "Lightweight architecture using Next.js and modern frameworks",
       "Stunning layouts optimized for SEO and conversion rates",
       "Pixel-perfect responsive design across mobile and desktop",
       "Robust CMS integrations with authentication and access controls"
     ],
-    "details": "We build fast, interactive, and reliable websites tailored to meet your enterprise objectives. Our engineering team uses modern frameworks, secure coding practices, and performance-focused delivery to create digital experiences that rank well, load quickly, and protect user trust."
+    "details": "We build fast, interactive, and reliable websites tailored to meet your enterprise objectives. Our engineering team uses modern frameworks, quality coding practices, and performance-focused delivery to create digital experiences that rank well, load quickly, and support user trust."
   },
   {
     "id": "s2",
     "slug": "mobile-app-development",
     "title": "Mobile App Development",
-    "description": "High-performance iOS and Android applications built with secure data flows and premium UX.",
+    "description": "High-performance iOS and Android applications built with reliable data flows and premium UX.",
     "iconName": "Smartphone",
     "benefits": [
       "Single-codebase efficiency using React Native or Flutter",
       "Smooth 60fps gesture animations and transitions",
-      "Secure offline-first data synchronization and encrypted storage",
+      "Reliable offline-first data synchronization and local storage",
       "App Store & Google Play submission and maintenance support"
     ],
-    "details": "In a mobile-first world, your customers expect native experiences that work seamlessly and safely. We develop custom mobile apps using Flutter and React Native, combining smooth performance with secure authentication, reliable APIs, and maintainable release workflows."
+    "details": "In a mobile-first world, your customers expect native experiences that work seamlessly and safely. We develop custom mobile apps using Flutter and React Native, combining smooth performance with dependable sign-in flows, reliable APIs, and maintainable release workflows."
   },
   {
     "id": "s3",
     "slug": "saas-application-development",
     "title": "SaaS Application Development",
-    "description": "End-to-end multi-tenant SaaS development with secure access control, billing, and cloud readiness.",
+    "description": "End-to-end multi-tenant SaaS development with role-based access, billing, and cloud readiness.",
     "iconName": "Cloud",
     "benefits": [
-      "Scalable multi-tenant databases, secure schemas, and audit-ready access",
+      "Scalable multi-tenant databases, clean schemas, and traceable access",
       "Flexible billing and subscription flows (Stripe, LemonSqueezy)",
       "Granular RBAC (Role-Based Access Control) authentication",
       "Insightful analytics and user behavior dashboards"
     ],
-    "details": "Transform your software product idea into a secure, multi-tenant SaaS application. We help founders and enterprises design scalable databases, implement role-based access, integrate subscription engines, and deploy cloud resources that scale dynamically with user traffic."
-  },
-  {
-    "id": "s4",
-    "slug": "cyber-security",
-    "title": "Cyber Security",
-    "description": "SOC monitoring, threat detection, audits, and managed protection to defend your digital assets.",
-    "iconName": "Shield",
-    "benefits": [
-      "Comprehensive penetration testing and vulnerability assessment",
-      "Firewall, IAM, endpoint, email, and cloud security hardening",
-      "SOC monitoring, SIEM visibility, and incident response support",
-      "Compliance and risk reviews for GDPR, SOC 2, HIPAA, and internal policies"
-    ],
-    "details": "Your data, systems, and reputation need active protection. We help reduce risk through vulnerability assessment, penetration testing, SOC monitoring, SIEM implementation, endpoint protection, firewall reviews, cloud security hardening, and clear incident response planning."
+    "details": "Transform your software product idea into a scalable, multi-tenant SaaS application. We help founders and enterprises design scalable databases, implement role-based access, integrate subscription engines, and deploy cloud resources that scale dynamically with user traffic."
   }
 ]

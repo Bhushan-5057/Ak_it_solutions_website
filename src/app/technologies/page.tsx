@@ -34,7 +34,7 @@ export default function TechnologiesPage() {
     { key: "frontend", label: "Frontend Stacks" },
     { key: "backend", label: "Backend Architectures" },
     { key: "database", label: "Database Solutions" },
-    { key: "security", label: "Security & DevSecOps" },
+    { key: "devops", label: "Cloud & DevOps" },
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function TechnologiesPage() {
       <PageHero
         eyebrow="Our Technology Stack"
         title="Engineered with Modern Stacks"
-        description="We use modern, fast, and secure tools to build applications that perform under heavy loads."
+        description="We use modern, fast, and reliable tools to build applications that perform under heavy loads."
       />
 
       <section className="py-16 sm:py-20 lg:py-24 section-surface">

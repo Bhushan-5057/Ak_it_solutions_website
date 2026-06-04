@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const industryImages: Record<string, string> = {
   "transforming-domains": "/images/manufacturing.jpg",
   "service-offerings": "/images/finance.jpg",
-  "secure-scalable-solutions": "/images/healthcare.jpg",
+  "healthcare-lifesciences-solutions": "/images/healthcare.jpg",
   empowerment: "/images/manufacturing.jpg",
   "future-powering": "/images/education.jpg",
 };

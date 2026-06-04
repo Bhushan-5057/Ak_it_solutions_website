@@ -24,7 +24,7 @@ export default function AboutUsPage() {
       <PageHero
         eyebrow="About Our Company"
         title="We Build Digital Masterpieces"
-        description="AK IT Solution is a team of certified software engineers, cloud architects, and cyber security specialists."
+        description="AK IT Solution is a team of software engineers, cloud architects, and product delivery specialists."
       />
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

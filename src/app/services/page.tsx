@@ -11,7 +11,7 @@ import FAQSection, { FAQItem } from "@/components/common/FAQSection";
 
 export const metadata: Metadata = {
   title: "Our Services",
-  description: "Explore our software engineering solutions, including website development, mobile apps, SaaS, and cyber security.",
+  description: "Explore our software engineering solutions, including website development, mobile apps, SaaS, and cloud-ready platforms.",
 };
 
 export default function ServicesPage() {

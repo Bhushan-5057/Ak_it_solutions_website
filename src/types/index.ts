@@ -37,7 +37,7 @@ export interface IndustryItem {
 export interface TechnologyItem {
   id: string;
   name: string;
-  category: 'frontend' | 'backend' | 'mobile' | 'database' | 'ai-ml' | 'security';
+  category: 'frontend' | 'backend' | 'mobile' | 'database' | 'ai-ml' | 'devops';
   imageUrl: string;
 }
 
@@ -96,10 +96,22 @@ export interface BlogPost {
   publishedAt: string;
   author: string;
   iconName: string;
+  iconImageUrl?: string;
+  coverImageUrl?: string;
   tags: string[];
-  content: {
-    heading: string;
-    body: string;
-    bullets?: string[];
-  }[];
+  content:
+    | {
+        heading: string;
+        body: string;
+        bullets?: string[];
+      }[]
+    | unknown;
+  createdBy?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  creator?: {
+    id: string;
+    name: string;
+    email: string;
+  };
 }

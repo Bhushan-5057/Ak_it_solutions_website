@@ -1,34 +1,34 @@
 {
   "motto": "Innovation, Integrity, and Excellence",
-  "mottoDetails": "We deliver measurable value through secure engineering, transparent communication, and practical technology decisions that support long-term business resilience.",
-  "vision": "To help enterprises grow securely in the digital era",
-  "visionDetails": "Our vision is to empower organizations with reliable software, protected infrastructure, and cyber security practices that reduce risk without slowing innovation.",
+  "mottoDetails": "We deliver measurable value through thoughtful engineering, transparent communication, and practical technology decisions that support long-term business resilience.",
+  "vision": "To help enterprises grow confidently in the digital era",
+  "visionDetails": "Our vision is to empower organizations with reliable software, scalable infrastructure, and practical delivery practices that support innovation.",
   "manifesto": "The AK IT Manifesto",
-  "manifestoDetails": "We believe technology should be an enabler, not a hurdle. We write maintainable code, design scalable systems, protect user privacy, and build security into every stage of delivery. We build partnerships, not just software.",
+  "manifestoDetails": "We believe technology should be an enabler, not a hurdle. We write maintainable code, design scalable systems, respect user privacy, and keep quality visible at every stage of delivery. We build partnerships, not just software.",
   "stats": [
     { "value": "150+", "label": "Projects Completed" },
     { "value": "50+", "label": "Enterprise Clients" },
-    { "value": "24/7", "label": "Security Monitoring Mindset" },
+    { "value": "24/7", "label": "Delivery Support Mindset" },
     { "value": "98%", "label": "Client Retention Rate" }
   ],
   "whyChooseUs": [
     {
       "id": "1",
-      "title": "Secure Delivery Quality",
-      "description": "We use senior engineering practices, code reviews, automated testing, and security-aware CI/CD pipelines.",
+      "title": "Delivery Quality",
+      "description": "We use senior engineering practices, code reviews, automated testing, and dependable CI/CD pipelines.",
       "iconName": "Award"
     },
     {
       "id": "2",
       "title": "Resilient Architecture",
-      "description": "Our solutions use cloud, containerization, and infrastructure patterns designed for availability and protection.",
+      "description": "Our solutions use cloud, containerization, and infrastructure patterns designed for availability and scale.",
       "iconName": "Layers"
     },
     {
       "id": "3",
-      "title": "Security First",
-      "description": "We build security into planning, design, deployment, and monitoring, including encryption and access control.",
-      "iconName": "Lock"
+      "title": "Quality First",
+      "description": "We build quality into planning, design, development, deployment, and ongoing support.",
+      "iconName": "CheckCircle"
     },
     {
       "id": "4",

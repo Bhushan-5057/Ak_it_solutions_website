@@ -11,7 +11,6 @@ import {
   Globe,
   Smartphone,
   Cloud,
-  Shield,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,12 +32,6 @@ const servicesList = [
     href: "/services/saas-application-development",
     description: "Scalable multi-tenant cloud software.",
     icon: Cloud,
-  },
-  {
-    title: "Cyber Security",
-    href: "/services/cyber-security",
-    description: "Enterprise threat mitigation & audits.",
-    icon: Shield,
   },
 ];
 

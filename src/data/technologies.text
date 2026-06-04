@@ -16,7 +16,7 @@
     },
     "backend": {
       "title": "Backend Technologies",
-      "description": "Our server architectures are built for security, high throughput, and zero downtime.",
+      "description": "Our server architectures are built for reliability, high throughput, and zero downtime.",
       "items": [
         { "name": "Node.js", "imageUrl": "/images/tech/Node.js.svg" },
         { "name": "Express.js", "imageUrl": "/images/tech/Express.svg" },
@@ -59,9 +59,9 @@
         { "name": "Hugging Face", "imageUrl": "/images/tech/huggingface.svg" }
       ]
     },
-    "security": {
-      "title": "Security & DevSecOps",
-      "description": "Tightening system boundaries and implementing automatic vulnerability detection checks.",
+    "devops": {
+      "title": "Cloud & DevOps",
+      "description": "Automating deployments, infrastructure workflows, and environment operations.",
       "items": [
         { "name": "Docker", "imageUrl": "/images/tech/Docker.svg" },
         { "name": "Kubernetes", "imageUrl": "/images/tech/Kubernetes.svg" },

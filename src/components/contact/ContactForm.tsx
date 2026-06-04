@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import Button from "../common/Button";
+import { ContactService, createContact } from "@/lib/contacts";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -12,27 +13,62 @@ export default function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.service || !formData.message) {
-      alert("Please fill all the fields.");
-      return;
-    }
-    
-    setStatus("submitting");
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", service: "", message: "" });
-    }, 1500);
-  };
-
-  const servicesOptions = [
+  const servicesOptions: ContactService[] = [
     "Website Development",
     "Mobile App Development",
     "SaaS Application Development",
-    "Cyber Security",
   ];
+
+  const isContactService = (service: string): service is ContactService =>
+    servicesOptions.includes(service as ContactService);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    const contact = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      service: formData.service,
+      message: formData.message.trim(),
+    };
+
+    if (!contact.name || !contact.email || !contact.service || !contact.message) {
+      setStatus("error");
+      setErrorMessage("Please fill all the fields.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    const service = contact.service;
+
+    if (!isContactService(service)) {
+      setStatus("error");
+      setErrorMessage("Please select a valid service.");
+      return;
+    }
+
+    try {
+      setStatus("submitting");
+      await createContact({ ...contact, service });
+      setStatus("success");
+      setFormData({ name: "", email: "", service: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to submit contact form. Please try again."
+      );
+    }
+  };
 
   if (status === "success") {
     return (
@@ -127,6 +163,12 @@ export default function ContactForm() {
             className="w-full px-4 py-3 text-sm bg-background border border-border/80  rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all text-foreground placeholder:text-muted-foreground/60 resize-y min-h-[120px]"
           />
         </div>
+
+        {status === "error" && errorMessage && (
+          <p className="text-sm font-medium text-red-500" role="alert">
+            {errorMessage}
+          </p>
+        )}
 
         <Button
           type="submit"
