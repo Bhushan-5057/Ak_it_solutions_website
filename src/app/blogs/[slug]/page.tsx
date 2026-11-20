@@ -64,12 +64,18 @@ function normalizeContent(content: unknown): ContentRecord[] {
 
 function renderContentBlock(block: ContentRecord, index: number) {
   const type = asString(block.type).toLowerCase();
-  const heading = asString(block.heading) || asString(block.title);
+  const heading =
+    type === "heading"
+      ? asString(block.text)
+      : asString(block.heading) || asString(block.title);
+
   const body =
-    asString(block.body) ||
-    asString(block.text) ||
-    asString(block.paragraph) ||
-    asString(block.content);
+    type !== "heading"
+      ? asString(block.body) ||
+      asString(block.text) ||
+      asString(block.paragraph) ||
+      asString(block.content)
+      : "";
   const imageUrl =
     asString(block.imageUrl) || asString(block.url) || asString(block.src);
   const imageAlt = asString(block.alt) || heading || "Blog image";
@@ -115,7 +121,7 @@ function renderContentBlock(block: ContentRecord, index: number) {
     return (
       <section key={index}>
         {heading && (
-          <h2 className="text-2xl font-extrabold leading-tight text-foreground">
+          <h2 className="mt-12 text-md lg:text-2xl font-black tracking-tight text-slate-900">
             {heading}
           </h2>
         )}
@@ -137,12 +143,12 @@ function renderContentBlock(block: ContentRecord, index: number) {
   return (
     <section key={index}>
       {heading && (
-        <h2 className="text-2xl font-extrabold leading-tight text-foreground">
+        <h2 className="mt-12 text-md lg:text-2xl font-black tracking-tight text-slate-900">
           {heading}
         </h2>
       )}
       {body && (
-        <p className="mt-4 text-sm leading-8 text-muted-foreground sm:text-base">
+        <p className="text-base lg:text-md leading-8 text-slate-600 font-normal">
           {body}
         </p>
       )}
@@ -151,7 +157,7 @@ function renderContentBlock(block: ContentRecord, index: number) {
           {items.map((item) => (
             <div
               key={item}
-              className="flex items-start gap-3 rounded-lg border border-primary/10 bg-primary/5 p-4 text-sm font-semibold leading-6 text-foreground/85"
+             className="flex items-start gap-3 rounded-xl border border-primary/10 bg-primary/5 p-5 text-base font-medium text-slate-700"
             >
               <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
               <span>{item}</span>

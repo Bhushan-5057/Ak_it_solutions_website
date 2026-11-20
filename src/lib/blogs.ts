@@ -1,15 +1,5 @@
 import { BlogPost } from "@/types";
-
-type ApiResponse<T, M = unknown> = {
-  success: boolean;
-  message?: string;
-  data: T;
-  meta?: M;
-};
-
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ||
-  "http://localhost:5000";
+import { loadData } from "@/utils/dataLoader";
 
 export type BlogSortBy =
   | "id"
@@ -60,107 +50,109 @@ export type BlogListMeta = {
   };
 };
 
-const DEFAULT_BLOG_META: BlogListMeta = {
-  pagination: {
-    page: 1,
-    limit: 12,
-    totalItems: 0,
-    totalPages: 0,
-  },
-  sorting: {
-    sortBy: "publishedAt",
-    sortOrder: "DESC",
-  },
-};
-
-function buildQuery(params: BlogListParams) {
-  const searchParams = new URLSearchParams();
-
-  Object.entries(params).forEach(([key, value]) => {
-    if (value === undefined || value === null || value === "") return;
-    searchParams.set(key, String(value));
-  });
-
-  const query = searchParams.toString();
-
-  return query ? `?${query}` : "";
+function getStaticBlogs(): BlogPost[] {
+  return loadData<BlogPost[]>("blogs.text");
 }
 
-async function request<T>(path: string): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: {
-      Accept: "application/json",
-    },
-    cache: "no-store",
-  });
+function matchesSearch(post: BlogPost, search: string) {
+  if (!search) return true;
 
-  if (response.status === 404) {
-    throw new Error("NOT_FOUND");
-  }
+  const query = search.toLowerCase();
+  const haystack = [
+    post.title,
+    post.excerpt,
+    post.category,
+    post.author,
+    ...(post.tags || []),
+  ]
+    .join(" ")
+    .toLowerCase();
 
-  let payload: ApiResponse<T> | undefined;
-
-  try {
-    payload = (await response.json()) as ApiResponse<T>;
-  } catch {
-    throw new Error("Unable to read blog response.");
-  }
-
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.message || "Unable to fetch blogs.");
-  }
-
-  return payload.data;
+  return haystack.includes(query);
 }
 
-async function requestWithMeta<T, M>(path: string): Promise<{ data: T; meta?: M }> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: {
-      Accept: "application/json",
-    },
-    cache: "no-store",
+function compareValues(left: string, right: string, sortOrder: BlogSortOrder) {
+  const result = left.localeCompare(right, undefined, {
+    numeric: true,
+    sensitivity: "base",
   });
 
-  let payload: ApiResponse<T, M> | undefined;
+  return sortOrder === "ASC" ? result : -result;
+}
 
-  try {
-    payload = (await response.json()) as ApiResponse<T, M>;
-  } catch {
-    throw new Error("Unable to read blog response.");
-  }
+function sortPosts(
+  posts: BlogPost[],
+  sortBy: BlogSortBy,
+  sortOrder: BlogSortOrder
+) {
+  return [...posts].sort((first, second) => {
+    const left = String(first[sortBy as keyof BlogPost] || "");
+    const right = String(second[sortBy as keyof BlogPost] || "");
 
-  if (!response.ok || !payload.success) {
-    throw new Error(payload.message || "Unable to fetch blogs.");
-  }
+    return compareValues(left, right, sortOrder);
+  });
+}
 
-  return {
-    data: payload.data,
-    meta: payload.meta,
-  };
+export function getBlogCategories() {
+  return Array.from(
+    new Set(getStaticBlogs().map((post) => post.category).filter(Boolean))
+  ).sort((first, second) => first.localeCompare(second));
 }
 
 export async function getBlogs(params: BlogListParams = {}) {
-  const result = await requestWithMeta<BlogPost[], BlogListMeta>(
-    `/api/blogs${buildQuery(params)}`
-  );
+  const page = params.page && params.page > 0 ? params.page : 1;
+  const limit = params.limit && params.limit > 0 ? params.limit : 12;
+  const search = params.search?.trim() || "";
+  const category = params.category?.trim() || "";
+  const author = params.author?.trim() || "";
+  const sortBy = params.sortBy || "publishedAt";
+  const sortOrder = params.sortOrder || "DESC";
+
+  let posts = getStaticBlogs().filter((post) => {
+    if (!matchesSearch(post, search)) return false;
+    if (category && post.category !== category) return false;
+    if (author && post.author !== author) return false;
+    return true;
+  });
+
+  posts = sortPosts(posts, sortBy, sortOrder);
+
+  const totalItems = posts.length;
+  const totalPages = totalItems > 0 ? Math.ceil(totalItems / limit) : 0;
+  const safePage = totalPages > 0 ? Math.min(page, totalPages) : 1;
+  const start = (safePage - 1) * limit;
+  const paginatedPosts = posts.slice(start, start + limit);
 
   return {
-    posts: result.data,
-    meta: result.meta || {
-      ...DEFAULT_BLOG_META,
+    posts: paginatedPosts,
+    meta: {
       pagination: {
-        ...DEFAULT_BLOG_META.pagination,
-        page: params.page || DEFAULT_BLOG_META.pagination.page,
-        limit: params.limit || DEFAULT_BLOG_META.pagination.limit,
-        totalItems: result.data.length,
-        totalPages: result.data.length > 0 ? 1 : 0,
+        page: safePage,
+        limit,
+        totalItems,
+        totalPages,
       },
-    },
+      search: search || undefined,
+      filters: {
+        category: category || undefined,
+        author: author || undefined,
+      },
+      sorting: {
+        sortBy,
+        sortOrder,
+      },
+    } satisfies BlogListMeta,
   };
 }
 
-export function getBlogBySlug(slug: string) {
-  return request<BlogPost>(`/api/blogs/slug/${encodeURIComponent(slug)}`);
+export async function getBlogBySlug(slug: string) {
+  const post = getStaticBlogs().find((item) => item.slug === slug);
+
+  if (!post) {
+    throw new Error("NOT_FOUND");
+  }
+
+  return post;
 }
 
 export function isNotFoundError(error: unknown) {

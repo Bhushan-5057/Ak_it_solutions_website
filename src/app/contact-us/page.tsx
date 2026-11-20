@@ -15,10 +15,7 @@ export default function ContactUsPage() {
   const contact = loadData<ContactData>("contact.text");
 
   const socialLinks = [
-    { icon: FaFacebookF, href: contact.facebook, label: "Facebook" },
     { icon: FaLinkedinIn, href: contact.linkedin, label: "LinkedIn" },
-    { icon: FaInstagram, href: contact.instagram, label: "Instagram" },
-    { icon: FaYoutube, href: contact.youtube, label: "YouTube" },
   ];
 
   return (
@@ -62,17 +59,6 @@ export default function ContactUsPage() {
                     <h4 className="font-bold text-sm text-slate-100">Office Location</h4>
                     <p className="text-slate-200/80 text-xs sm:text-sm mt-1 leading-relaxed">
                       {contact.address}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="p-2.5 bg-white/10  rounded-lg text-primary mr-4 flex-shrink-0 mt-0.5">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-slate-100">Contact Number</h4>
-                    <p className="text-slate-200/80 text-xs sm:text-sm mt-1">
-                      {contact.phone}
                     </p>
                   </div>
                 </div>

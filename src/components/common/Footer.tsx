@@ -23,10 +23,7 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: FaFacebookF, href: "https://facebook.com/akitsolution", label: "Facebook" },
-    { icon: FaLinkedinIn, href: "https://linkedin.com/company/akitsolution", label: "LinkedIn" },
-    { icon: FaInstagram, href: "https://instagram.com/akitsolution", label: "Instagram" },
-    { icon: FaYoutube, href: "https://youtube.com/c/akitsolution", label: "YouTube" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ak-it-solutions-group", label: "LinkedIn" },
   ];
 
   return (
@@ -49,18 +46,11 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:info@akitsolution.com"
+                href="mailto:contact@akitsolutions.us"
                 className="flex items-center text-slate-200/85 hover:text-cyan-200 transition-colors text-sm"
               >
                 <Mail className="h-4 w-4 mr-3" />
-                info@akitsolution.com
-              </a>
-              <a
-                href="tel:+911204567890"
-                className="flex items-center text-slate-200/85 hover:text-cyan-200 transition-colors text-sm"
-              >
-                <Phone className="h-4 w-4 mr-3" />
-                +91 120 4567890
+                contact@akitsolutions.us
               </a>
             </div>
           </div>
@@ -108,12 +98,6 @@ export default function Footer() {
             <p className="text-slate-200/80 text-sm mb-6">
               Follow our team and read practical guidance for modern digital operations.
             </p>
-            <Link
-              href="/blogs"
-              className="mb-6 inline-flex rounded-lg border border-white/15 bg-white/10 px-4 py-2 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-primary"
-            >
-              Read Blogs
-            </Link>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -123,10 +107,10 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 text-white hover:bg-primary hover:scale-110 hover:-translate-y-1 transition-all duration-200 border border-white/10"
+                    className="flex items-center justify-center h-12 w-12 rounded-lg bg-white/10 text-white hover:bg-primary hover:scale-110 hover:-translate-y-1 transition-all duration-200 border border-white/10"
                     aria-label={`Follow us on ${social.label}`}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-8 w-8" />
                   </a>
                 );
               })}

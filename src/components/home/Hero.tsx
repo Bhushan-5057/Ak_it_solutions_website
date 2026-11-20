@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import Button from "../common/Button";
 import {
@@ -73,8 +72,7 @@ function ElegantShape({
             gradient,
             "backdrop-blur-[2px]",
             "border border-primary/10 ",
-            "shadow-[0_8px_32px_0_rgba(54,146,203,0.10)]",
-            ""
+            "shadow-[0_8px_32px_0_rgba(54,146,203,0.10)]"
           )}
         />
       </motion.div>
@@ -83,29 +81,6 @@ function ElegantShape({
 }
 
 export default function Hero({ data }: HeroProps) {
-  const [titleNumber, setTitleNumber] = useState(0);
-
-  const titles = useMemo(
-    () => [
-      "Agile",
-      "Scalable",
-      "Resilient",
-      "Reliable",
-      "Modern",
-    ],
-    []
-  );
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setTitleNumber((prev) =>
-        prev === titles.length - 1 ? 0 : prev + 1
-      );
-    }, 2500);
-
-    return () => clearTimeout(timeout);
-  }, [titleNumber, titles]);
-
   const fadeUpVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -121,7 +96,7 @@ export default function Hero({ data }: HeroProps) {
 
   return (
     <section className="relative min-h-[680px] lg:min-h-[720px] xl:min-h-[760px] w-full overflow-hidden flex items-center justify-center bg-[linear-gradient(135deg,#f7fbff_0%,#eef6ff_45%,#ffffff_100%)] pt-28 pb-16">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.14] via-transparent to-secondary/[0.10] blur-3xl  " />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.14] via-transparent to-secondary/[0.10] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
@@ -152,7 +127,7 @@ export default function Hero({ data }: HeroProps) {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
         <div className="max-w-5xl mx-auto flex flex-col items-center gap-7">
           <motion.div
             custom={1}
@@ -165,44 +140,8 @@ export default function Hero({ data }: HeroProps) {
               Digital Product & IT Solutions
             </span>
 
-            <h1 className="font-black tracking-tight leading-[1.05] text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.1rem] text-slate-900 ">
-              <span className="inline-flex flex-wrap justify-center items-center gap-x-4">
-                <span>Building</span>
-
-                <span className="relative inline-flex h-[1.2em] overflow-hidden">
-                  {titles.map((title, index) => (
-                    <motion.span
-                      key={index}
-                      className="absolute left-0 top-0 whitespace-nowrap bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent"
-                      initial={{ opacity: 0, y: "100%" }}
-                      animate={
-                        titleNumber === index
-                          ? {
-                            opacity: 1,
-                            y: 0,
-                          }
-                          : {
-                            opacity: 0,
-                            y: titleNumber > index ? "-120%" : "120%",
-                          }
-                      }
-                      transition={{
-                        type: "spring",
-                        stiffness: 70,
-                        damping: 16,
-                      }}
-                    >
-                      {title}
-                    </motion.span>
-                  ))}
-
-                  <span className="invisible">Intelligent</span>
-                </span>
-              </span>
-
-              <span className="block">
-                Digital Infrastructure
-              </span>
+            <h1 className="mx-auto max-w-[18ch] sm:max-w-none font-black tracking-tight leading-[1.1] sm:leading-[1.05] text-balance text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.1rem] text-slate-900">
+              Security First Development Partner
             </h1>
 
             <motion.p
@@ -238,7 +177,7 @@ export default function Hero({ data }: HeroProps) {
               href="/contact-us"
               variant="outline"
               size="lg"
-              className="group w-full sm:w-auto min-w-[180px] border-slate-300   "
+              className="group w-full sm:w-auto min-w-[180px] border-slate-300"
             >
               Book a Call
 

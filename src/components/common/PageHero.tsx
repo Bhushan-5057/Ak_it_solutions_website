@@ -26,12 +26,12 @@ export default function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#eef6ff_0%,#ffffff_45%,#e8f1ff_100%)] text-foreground pt-20 pb-16 sm:pt-24 sm:pb-20">
-      <DottedSurface className="opacity-70" />
+      <DottedSurface className="opacity-100" />
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_25%_20%,rgba(54,146,203,0.18),transparent_34%),radial-gradient(circle_at_80%_10%,rgba(29,45,121,0.14),transparent_30%)]" />
       <div className="absolute inset-x-0 bottom-0 z-0 h-24 bg-gradient-to-t from-background to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={isCenter ? "mx-auto max-w-3xl text-center" : "max-w-4xl"}>
+        <div className={isCenter ? "mx-auto max-w-4xl text-center" : "max-w-4xl"}>
           {backHref && (
             <Link
               href={backHref}
@@ -49,7 +49,11 @@ export default function PageHero({
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
             {title}
           </h1>
-          <p className={`mt-5 text-sm sm:text-base lg:text-lg leading-8 text-muted-foreground max-w-2xl ${isCenter ? "mx-auto" : ""}`}>
+          <p
+            className={`mt-5 max-w-3xl px-1 sm:px-2 text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 font-medium text-slate-800 [text-shadow:0_1px_1px_rgba(255,255,255,0.95),0_0_14px_rgba(255,255,255,0.85),0_0_28px_rgba(238,246,255,0.9)] ${
+              isCenter ? "mx-auto" : ""
+            }`}
+          >
             {description}
           </p>
           {children && <div className="mt-8">{children}</div>}

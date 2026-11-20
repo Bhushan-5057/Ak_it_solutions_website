@@ -23,8 +23,8 @@ export default function AboutUsPage() {
     <div className="pt-24 pb-0 space-y-0">
       <PageHero
         eyebrow="About Our Company"
-        title="We Build Digital Masterpieces"
-        description="AK IT Solution is a team of software engineers, cloud architects, and product delivery specialists."
+        title="Secure by design. Compliant by default. Development you can trust"
+        description="We provide end-to-end development services with cybersecurity and compliance built into every phase of the lifecycle. By following industry-recognized security standards and applicable regulations, we help businesses ship reliable software while protecting their data, their users, and their reputation."
       />
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,21 +107,6 @@ export default function AboutUsPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="py-24 bg-secondary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(54,146,203,0.1),transparent_60%)]" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6" data-aos="fade-up">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-primary bg-primary/15 px-3 py-1.5 rounded-full inline-block">
-            Our manifesto
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            {data.manifesto}
-          </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed italic max-w-2xl mx-auto">
-            {data.manifestoDetails}
-          </p>
         </div>
       </section>
       <section className="relative overflow-hidden bg-[url('/images/about_bg.png')] bg-cover bg-center py-20 text-white py-2">

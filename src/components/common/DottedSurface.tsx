@@ -72,7 +72,7 @@ export default function DottedSurface({
     geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-      size: 18,
+      size: 12,
       vertexColors: true,
       transparent: true,
       opacity: 1,

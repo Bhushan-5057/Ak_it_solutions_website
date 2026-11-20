@@ -6,7 +6,13 @@ import BlogCard from "@/components/blogs/BlogCard";
 import BlogListingControls from "@/components/blogs/BlogListingControls";
 import BlogPagination from "@/components/blogs/BlogPagination";
 import ContactCTA from "@/components/common/ContactCTA";
-import { BlogListMeta, BlogSortBy, BlogSortOrder, getBlogs } from "@/lib/blogs";
+import {
+  BlogListMeta,
+  BlogSortBy,
+  BlogSortOrder,
+  getBlogCategories,
+  getBlogs,
+} from "@/lib/blogs";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -96,9 +102,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         : "Unable to fetch blogs. Please try again later.";
   }
 
-  const categories = Array.from(
-    new Set([...posts.map((post) => post.category), category].filter(Boolean))
-  ).sort((first, second) => first.localeCompare(second));
+  const categories = getBlogCategories();
   const hasActiveFilters = Boolean(search || category);
 
   return (
@@ -136,7 +140,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
             </div>
           ) : posts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 {posts.map((post, index) => (
                   <BlogCard key={post.id || post.slug} post={post} index={index} />
                 ))}
